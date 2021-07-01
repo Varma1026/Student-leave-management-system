@@ -12,8 +12,7 @@ else
 	$query = mysqli_query($conn,$sql);
 	$row = mysqli_fetch_array($query);
 
-	$sql1 = "SELECT * FROM `tbl_leave`";
-	$query1 = mysqli_query($conn,$sql1);
+	
 	
 
 
@@ -145,6 +144,8 @@ else
 										</thead>
 										<tbody>
 										<?php
+											$sql1 = "SELECT * FROM `tbl_leave`";
+											$query1 = mysqli_query($conn,$sql1);
 											while($row1 = mysqli_fetch_array($query1))
 												{
 													echo '<tr><td>'.$row1["slno"].'</td>
