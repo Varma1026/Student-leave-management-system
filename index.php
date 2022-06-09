@@ -12,9 +12,10 @@ if(isset($_POST['asignin']))
     $query = mysqli_query($conn,$sql);
     $row = mysqli_fetch_array($query);
 
-    if($row['password'] == $password )
+    if($row['password'] == `$password` )
     {
             $_SESSION['sess_user'] = $row['username'];
+            $_SESSION['sess_user1'] = "Admin";
             echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
             
     }
@@ -33,10 +34,10 @@ if(isset($_POST['ssignin']))
     $sql = "SELECT * FROM `tbl_student` WHERE `rollnum` = '$rollnum' ";
     $query = mysqli_query($conn,$sql);
     $row = mysqli_fetch_array($query);
-
     if($row['password'] == $password )
     {
             $_SESSION['sess_user'] = $row['rollnum'];
+            $_SESSION['sess_user1'] = "Student";
             echo "<script type='text/javascript'> document.location = 'profile.php'; </script>";
             
     }
@@ -57,12 +58,12 @@ if(isset($_POST['ssignin']))
 </head>
 <body>
 
-  <div class="navbar">
-    <div class="logo">
-      <img src="aitam.png" alt="Aitam Logo">
-    </div>
-    <div ><h2>Student Leave Management System</h2></div>
-    <a href="register.php">New Student?</a>
+  <div class="navbar d-flex align-items-center">
+        <div class="logo">
+          <img src="aitam.png" alt="Aitam Logo">
+        </div>
+         <div ><h2>Student Leave Management System</h2></div>
+         <div class="d-flex align-items-center"><a href="register.php">New Student?</a></div>
   </div>
 
 

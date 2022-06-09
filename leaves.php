@@ -12,11 +12,8 @@ else
 	$query = mysqli_query($conn,$sql);
 	$row = mysqli_fetch_array($query);
 
-	$sql1 = "SELECT * FROM `tbl_leave`";
-	$query1 = mysqli_query($conn,$sql1);
 	
-
-
+	// echo mysqli_error($sql1);
 ?>
 <!doctype html>
 <html lang="en">
@@ -133,7 +130,6 @@ else
 												<th>Sno</th>
 												<th>Name</th>
 												<th>Rollno</th>
-												
 												<th>Leave type</th>
 												<th>From</th>
 												<th>To</th>
@@ -145,8 +141,11 @@ else
 										</thead>
 										<tbody>
 										<?php
-											while($row1 = mysqli_fetch_array($query1))
+												$sql1 = "SELECT * FROM `tbl_leave` WHERE 1";
+												$query1 = mysqli_query($conn,$sql1);
+												while($row1 = mysqli_fetch_array($query1))
 												{
+													
 													echo '<tr><td>'.$row1["slno"].'</td>
 															<td>'.$row1["fname"].'</td>
 															
@@ -158,36 +157,11 @@ else
 															<td>'.$row1["reason"].'</td>
 															<td>'.$row1["status"].'</td>
 															<td><button class="acc"><a class="coll" href="requestdetails.php?rollnum='.$row1['rollnum'].'&slno='.$row1['slno'].'">Details</a></button></td>
-																						
-																						
-																					
-																					
-																
-															
-															</tr>';
-												}?>
-											<!-- <tr>
-												<td></td>
-												<td>Steve</td>
-												<td>cse</td>
-												<td>1</td>
-												<th>b</th>
-												<td>casual</td>
-												<td>event</td>
-												<td><button  class="acc">Accept</button></td>
-												<td><button  class="rjj">Reject</button></td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Steve</td>
-												<td>cse</td>
-												<td>1</td>
-												<th>b</th>
-												<td>casual</td>
-												<td>event</td>
-												<td><button class="acc">Accept</button></td>
-												<td><button class="rjj">Reject</button></td>
-											</tr> -->
+														   </tr>';
+												}
+												
+										?>
+											
 										</tbody>
 									</table>
 								</div>

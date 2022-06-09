@@ -16,7 +16,8 @@ else
 
 
 	if(isset($_POST['apply']))
-	{
+	{ 
+		if(isset($_POST['fname']) != '')
 		$fname=$_POST['fname'];
 		$rollnum=$_POST['rollnum'];
 		$todate= $_POST['todate'];
@@ -24,7 +25,7 @@ else
 		$leavetype =$_POST['leavetype'];
 		$reason=$_POST['reason'];
 
-    if($password==$cnfrmpassword){
+    
 
     	$sql1 = "INSERT INTO `tbl_leave` (`fname`,`rollnum`,`todate`,`fromdate`,`leavetype`,`reason`) VALUES ('$fname','$rollnum','$todate','$fromdate','$leavetype','$reason')";
     	$query1 = mysqli_query($conn,$sql1);
@@ -41,11 +42,8 @@ else
 					// echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
 					$error='Failed';
 			}
-    }
-    else{
-    			echo '<script>alert("Confirmation Failed Please Verifiy");</script>';
-				// echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
-    }
+    
+   
 }
 ?>
 <!doctype html>

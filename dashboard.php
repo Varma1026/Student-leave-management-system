@@ -9,8 +9,6 @@ else
 {
 	$active_user=$_SESSION["sess_user"];
 	
-	
-	
 ?>
 <!DOCTYPE html>
 <html lang="en">

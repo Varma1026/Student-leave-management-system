@@ -10,13 +10,6 @@ else
    
 	echo session_status();
     $active_user=$_SESSION["sess_user"];
-    
-    
-    
-    
-    
-                                     
-                                
 
 ?>
 <!doctype html>
