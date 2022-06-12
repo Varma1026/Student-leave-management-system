@@ -5,16 +5,18 @@ $error='';
 $msg='';
 if(isset($_POST['asignin']))
 {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = $conn->real_escape_string($_POST['username']) ;
+    $password =$conn->real_escape_string($_POST['password']);
 
-    $sql = "SELECT * FROM `admin` WHERE `username` = '$username' ";
-    $query = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_array($query);
-
-    if($row['password'] == `$password` )
+    $sql1 = "SELECT * FROM `admin` WHERE `username` = '$username' ";
+  
+    $query1 = mysqli_query($conn,$sql1);
+    echo mysqli_error($conn);
+    $row1 = mysqli_fetch_array($query1);
+    
+    if($row1['password'] ==$password )
     {
-            $_SESSION['sess_user'] = $row['username'];
+            $_SESSION['sess_user'] = $row1['username'];
             $_SESSION['sess_user1'] = "Admin";
             echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
             
